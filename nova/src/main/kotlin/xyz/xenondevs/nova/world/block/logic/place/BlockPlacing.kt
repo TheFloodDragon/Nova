@@ -151,7 +151,7 @@ internal object BlockPlacing : Listener {
         
         ProtectionManager.canPlace(player, handItem, block.location).runIfTrueOnSimilarThread {
             if (canPlace(player, handItem, block, placedOn)) {
-                val placed = block.block.placeVanilla(player.serverPlayer, handItem, true)
+                val placed = block.block.placeVanilla(player.serverPlayer, handItem, false) // Is it should be no sounds?
                 if (placed && player.gameMode != GameMode.CREATIVE) {
                     player.inventory.setItem(event.hand!!, handItem.apply { amount -= 1 })
                 }
