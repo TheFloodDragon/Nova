@@ -86,7 +86,7 @@ sealed interface Enchantment {
          */
         fun of(enchantment: MojangEnchantment): Enchantment {
             val id = BuiltInRegistries.ENCHANTMENT.getKey(enchantment)!!
-            return NovaRegistries.ENCHANTMENT.getOptional(id).orElse { VanillaEnchantment(id, enchantment) }
+            return NovaRegistries.ENCHANTMENT.getOptional(id).orElseGet { VanillaEnchantment(id, enchantment) }
         }
         
         /**
