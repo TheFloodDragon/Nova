@@ -17,6 +17,7 @@ object ServerUtils {
             "Tuinity" -> TUINITY
             "Purpur" -> PURPUR
             "Airplane" -> AIRPLANE
+            "Leaf" -> PURPUR // 2024/7/13 Fix: 让Leaf被识别成Purpur
             else -> UNKNOWN
         }
     }
