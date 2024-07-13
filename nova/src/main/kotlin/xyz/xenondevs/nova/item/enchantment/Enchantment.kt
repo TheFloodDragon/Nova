@@ -82,10 +82,11 @@ sealed interface Enchantment {
         
         /**
          * Retrieves the related [Enchantment] for the given [MojangEnchantment] from the [NovaRegistries.ENCHANTMENT] registry.
+         * 2024/7/13: Fix - If the enchantment hasn't been registered in [NovaRegistries.ENCHANTMENT] , return the unchecked [VanillaEnchantment]
          */
         fun of(enchantment: MojangEnchantment): Enchantment {
             val id = BuiltInRegistries.ENCHANTMENT.getKey(enchantment)!!
-            return NovaRegistries.ENCHANTMENT.getOrThrow(id)
+            return NovaRegistries.ENCHANTMENT.getOrNull(id) ?: VanillaEnchantment(id, enchantment)
         }
         
         /**
